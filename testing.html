@@ -1,0 +1,45 @@
+<html>
+<head>
+    <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</head>
+<body>
+<div id='messagesDiv'></div>
+<input type='text' id='nameInput' placeholder='Name'>
+<input type='text' id='messageInput' placeholder='Message'>
+<h3 id="message"></h3>
+<script>
+    var pusher = new Pusher('5616efde0c5937db84f0');
+
+
+    $('#messageInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+            var name = $('#nameInput').val();
+            var text = $('#messageInput').val();
+            var channel = pusher.subscribe(text);
+            channel.bind('my-event', function(data) {
+                alert('An event was triggered with message: ' + data.message);
+                $("#message").text(data.message)
+            });
+            $.ajax({
+                type: 'POST',
+                url:'php/message.php',
+                data:{caller:text, callee:'bob'},
+                success: function (){
+                    $('#ChatMessages').load("DisplayMessage.php");
+                    $("#ChatText").val('');
+                }
+            });
+            $('#messageInput').val('');
+           
+        }
+    });
+
+    
+    function displayChatMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+    };
+</script>
+</body>
+</html>
