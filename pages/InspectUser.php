@@ -8,7 +8,7 @@
       $user->setUserPassword(sha1($_POST['UserPassword']));
       $user->InsertUser();
       
-      header ("Location: ../index.php?success=1");
+      header ("Location: ../index.php?inserted=success");
    }
    //validation 
    //http://www.w3schools.com/php/php_form_url_email.asp

@@ -7,13 +7,6 @@ $(document).ready(function () {
   $('#receiveCall').on('click', function () {
     receiveCall();
   });
-
-  $("#login-button").click(function(event){
-    event.preventDefault();
-
-    //$('form').fadeOut(500);
-    //$('.wrapper').addClass('form-success');
-  });
 });
 
   var username, localVideo, remoteVideo, pusher, remoteSdp, peer, peerConnection = null;
