@@ -19,12 +19,13 @@
 <body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
+     <label class="navbar-text pull-right" style="color:black"><small>Welcome </small><?php  echo $_SESSION['userName'];?></label>
+     
     <div class="navbar-header">
     
       <a class="navbar-brand" href="#">
         <label>webrtc</label> 
            </a>
-      <label class="navbar-text pull-right" style="color:black">Welcome <small><?php  echo $_SESSION['userName']; ?></small></label>
              
     </div>
   </div>
@@ -40,9 +41,10 @@
      	<input id="ChatText" type='text' name="ChatText" placeholder="UserId"/>
       <button class="btn btn-primary" onclick="connect()" id="dial">Dial</button>
   </div> 
-  
-  <video id="remoteVideo" class="video-box col-xs-12  flip-horizontal" autoplay></video>
-  <video id="localVideo" class="video-box col-xs-12  flip-horizontal" autoplay></video>
+  <div>
+    <video id="remoteVideo" class="video-box col-xs-12  embed-responsive embed-responsive-4by3" autoplay></video>
+    <video id="localVideo" class="video-box col-xs-12  embed-responsive embed-responsive-4by3" autoplay></video>
+  </div>
 </div>
 	<script src="//js.pusher.com/2.2/pusher.min.js"></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
