@@ -41,9 +41,9 @@
      	<input id="ChatText" type='text' name="ChatText" placeholder="UserId"/>
       <button class="btn btn-primary" onclick="connect()" id="dial">Dial</button>
   </div> 
-  <div>
-    <video id="remoteVideo" class="video-box col-xs-12  embed-responsive embed-responsive-4by3" autoplay></video>
-    <video id="localVideo" class="video-box col-xs-12  embed-responsive embed-responsive-4by3" autoplay></video>
+  <div style="position: relative">
+    <video id="remoteVideo" style="border: 1px solid red;right: 0px;left: 0px; width: 100%;position: absolute" autoplay></video>
+    <video id="localVideo" style="width: 30%;border: 1px solid blue;position: absolute;right: 0px;" autoplay></video>
   </div>
 </div>
 	<script src="//js.pusher.com/2.2/pusher.min.js"></script>
